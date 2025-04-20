@@ -1868,8 +1868,6 @@ class InstaFlowPrior(Prior):
 
 
     def compute_velocity_transform_scheduler(self, camera, x, t, **extras):
-        print("Original t", t[0].item()) 
-
         t = torch.tensor(t / 1000.0).to(x).to(torch.float32)
         r = t
         

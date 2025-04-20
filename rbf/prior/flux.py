@@ -2025,7 +2025,6 @@ class FluxPrior(Prior):
 
 
     def compute_velocity_transform_scheduler(self, x, t, **extras):
-        print("Original t", t[0].item()) 
         t = (t / 1000.0).to(x).to(torch.float32)
         r = t.clone()
         
