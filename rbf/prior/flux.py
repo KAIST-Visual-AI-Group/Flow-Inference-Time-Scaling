@@ -1965,39 +1965,6 @@ class FluxPrior(Prior):
 
             prev_latent = prev_x_mean + diffuse * dw
 
-
-            # -------------- ODE/SDE Variance Test -----------------
-            
-        #     with torch.no_grad():
-        #         if (self.cfg.batch_size == 1) and (not self.cfg.disable_debug):
-        #             x0s_logs = []
-
-        #             for _i in range(8):
-        #                 w = torch.randn(x.size()).to(x)
-        #                 dw = w * torch.sqrt(torch.abs(d_t))
-
-        #                 _prev_latent = prev_x_mean + diffuse * dw
-
-        #                 if self.cfg.convert_scheduler == "vp":
-        #                     _model_pred = sm.prior.compute_velocity_transform_scheduler(_prev_latent, prev_timestep)
-        #                 else:
-        #                     _model_pred = sm.prior.predict(_prev_latent, prev_timestep)
-
-        #                 _x0 = sm.prior.get_tweedie(_prev_latent, _model_pred, prev_timestep)
-
-        #                 x0s_logs.append(sm.prior.decode_latent(_x0))
-
-        # if (self.cfg.batch_size == 1) and (not self.cfg.disable_debug):
-        #     imgs_logs = torch_to_pil_batch(torch.cat(x0s_logs), is_grayscale=False)
-            
-        #     grid_img = image_grid(imgs_logs, 2, len(imgs_logs) // 2).resize((1024, 512))
-        #     grid_img.save(
-        #         os.path.join(sm.logger.debug_dir, f"{self.cfg.sample_method}_variance_test_{int(prev_timestep[0])}.png")
-        #     )
-        
-        # --------------------------------------------------------------------
-
-
         return prev_latent
     
     
