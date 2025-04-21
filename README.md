@@ -63,9 +63,68 @@ cd third-party/t2v_metrics/
 pip install -e .
 ```
 
+### Configuration:
+  - `--text_prompt` : Text prompt to guide generation. Required for reward-based sampling.
+
+  - `--filtering_method` : Strategy to select or prune particles (`bon`, `smc`, `code`, `svdd`, `rbf`).
+
+  - `--batch_size` : Number of prompts or samples processed in parallel during inference.
+
+  - `--n_particles` : Number of particles used per timestep to explore the reward landscape.
+
+  - `--block_size` : Number of timesteps grouped together for blockwise updates (set to 1 except in `code.yaml`).
+
+  - `--convert_scheduler` : Apply interpolant conversion at inference time (`vp`).
+
+  - `--sample_method` : Sampling method (`sde`, `ode`).
+
+  - `--diffusion_norm` : SDE sampling diffusion norm.
+
+  - `--max_nfe` : Total computational budget (in number of function evaluations) available during sampling. 
+
+  - `--max_steps` : Number of denoising steps in the generative process.
+
+  - `--reward_score` : Reward function used for alignment (`vqa`, `counting` ,`aesthetic`).
+
+  - `--init_n_particles` : Initial number of particles at the start of generation.
+
+
+</details>
+
 ### Compositional Image Generation
-You can host the VQAScore VLM on a separate device to save GPU memory. By default, the server responds on port 5000:
+Host the VQAScore VLM on a separate device to save GPU memory. By default, the server responds on port 5000:
 ```
 python rbf/corrector/reward_model/vqa_server.py
 ```
 
+Run compositional image generation using the following command. To prevent out-of-memory (OOM) issues, we recommend running it on a different device from the VQA server. 
+
+You may optionally override configuration values by specifying arguments directly in the command line:
+```
+CUDA_VISIBLE_DEVICES={$DEVICE} python main.py --config config/compositional_image/rbf.yaml text_prompt={$TEXT_PROMPT}
+```
+
+
+### Quantity-Aware Image Generation
+Coming Soon.
+
+
+### Aesthetic Image Generation
+Coming Soon.
+
+
+## Citation
+If you find our code helpful, please consider citing our work:
+```
+@article{kim2025inference,
+  title={Inference-Time Scaling for Flow Models via Stochastic Generation and Rollover Budget Forcing},
+  author={Kim, Jaihoon and Yoon, Taehoon and Hwang, Jisung and Sung, Minhyuk},
+  journal={arXiv preprint arXiv:2503.19385},
+  year={2025}
+}
+```
+
+<br />
+
+## Acknowledgement 
+This repository incorporates implementations from [Flow Matching](https://github.com/facebookresearch/flow_matching) and [FLUX](https://github.com/black-forest-labs/flux). We sincerely thank the authors for publicly releasing their codebases. 
