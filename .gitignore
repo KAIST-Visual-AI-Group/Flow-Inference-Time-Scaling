@@ -3,6 +3,7 @@ ckpt/
 data/
 hf_cache/
 results/
+rbf/test_modules/
 
 
 # Byte-compiled / optimized / DLL files

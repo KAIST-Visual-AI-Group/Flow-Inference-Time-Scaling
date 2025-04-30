@@ -1,0 +1,79 @@
+max_nfe: 500
+batch_size: 2
+tau_norm: 0.0
+
+text_prompt: Six airplanes flying over a desert with seven camels walking below
+class_gt_counts: 6, 7
+class_names: airplanes, camels
+
+max_steps: 10
+
+block_size: 1
+n_particles: 1
+sample_method: sde
+convert_scheduler: vp
+scheduler_n: 1
+
+init_n_particles: 25
+
+
+#===============================================================================
+
+root_dir: ./results
+tag: ${filtering_method}
+save_now: True
+
+device: 0
+seed: 0
+
+filtering_method: rbf
+
+#===============================================================================
+# Trainer settings 
+#===============================================================================
+disable_debug: False
+
+#===============================================================================
+# Dataset 
+#===============================================================================
+height: 1024
+width: 1024
+
+#===============================================================================
+# Time sampler 
+#===============================================================================
+time_sampler: flux_scheduler
+time_schedule: exp
+t_max: 1000
+
+#===============================================================================
+# Model 
+#===============================================================================
+model: flux_image
+channels: 4096 # [B 4096 64]
+
+#===============================================================================
+# Prior
+#===============================================================================
+prior: flux
+guidance_scale: 3.5
+
+diffusion_coefficient: square
+diffusion_norm: 3.0
+
+model_name: "black-forest-labs/FLUX.1-schnell"
+
+#===============================================================================
+# Logger
+#===============================================================================
+logger: self
+log_interval: 1
+
+#===============================================================================
+# Corrector
+#===============================================================================
+corrector: particle
+
+reward_score: counting
+reward_func: diff
+count_reward_model: gdsam

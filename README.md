@@ -106,8 +106,10 @@ CUDA_VISIBLE_DEVICES={$DEVICE} python main.py --config config/compositional_imag
 
 
 ### Quantity-Aware Image Generation
-Coming Soon.
-
+Run quantity-aware image generation using the following command. For the reward function, we use a combination of [Grounding DINO](https://arxiv.org/abs/2303.05499) and [Segment Anything](https://arxiv.org/abs/2304.02643) for robust object detection (experimented on a 48G GPU).
+```
+CUDA_VISIBLE_DEVICES={$DEVICE} python main.py --config config/quantity_aware/rbf.yaml text_prompt={$TEXT_PROMPT}
+```
 
 ### Aesthetic Image Generation
 Coming Soon.
