@@ -346,6 +346,7 @@ class RBF:
         self.max_budget = int((self.cfg.max_nfe - self.cfg.init_n_particles * self.cfg.batch_size) / (self.cfg.max_steps * self.cfg.batch_size)) * torch.ones(self.cfg.batch_size, dtype=torch.int32)
         self.default_budget = int((self.cfg.max_nfe - self.cfg.init_n_particles * self.cfg.batch_size) / (self.cfg.max_steps * self.cfg.batch_size))
         
+        
         if not self.cfg.benchmark:
             with redirect_stdout_to_tqdm():
                 with re_trange(0, self.cfg.max_nfe, position=0, desc="NFE", initial=0, total=self.cfg.max_nfe,) as pbar:
@@ -382,4 +383,6 @@ class RBF:
             last_tweedie_img = last_tweedie_img.squeeze().detach().cpu().numpy().transpose(1, 2, 0)
             last_tweedie_img = (last_tweedie_img*255).astype('uint8')
             Image.fromarray(last_tweedie_img).save(output_filename)
+
+        
 

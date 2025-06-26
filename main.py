@@ -12,8 +12,8 @@ sm.OFF_LOG = False
 sm.DO_NOT_SAVE_INTERMEDIATE_IMAGES = False
 
 from rbf.utils.config_utils import load_config
-# from rbf.general_trainer import GeneralTrainer
-# from rbf.rewind_trainer import RewindTrainer
+from rbf.general_trainer import GeneralTrainer
+from rbf.rewind_trainer import RewindTrainer
 from rbf.rbf import RBF
 
 # Differentiable reward

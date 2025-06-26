@@ -30,6 +30,7 @@
 
 <!-- Release Note -->
 ### Release
+- **[26/06/25]** 🚀 Baseline mplementations are released. We will release the configs soon. 
 - **[30/04/25]** 🚀 The code for quantity-aware image generation has been released. 
 - **[21/04/25]** 🔥 We have released the implementation of _Inference-Time Scaling for Flow Models via Stochastic Generation and Rollover Budget Forcing_ for compositional image generation. 
 
