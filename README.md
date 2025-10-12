@@ -30,6 +30,8 @@
 
 <!-- Release Note -->
 ### Release
+- **[12/10/25]** 📌 Implementations of differentiable reward (aesthetc image generation) has been released. 
+- **[18/09/25]** 🎉 Our work has been accepted to NeurIPS 2025. 
 - **[02/07/25]** ⚙️ Configuration files for compositional image generation and quantity-aware image generation are released. 
 - **[26/06/25]** 📝 Baseline implementations are released. 
 - **[30/04/25]** 🚀 The code for quantity-aware image generation has been released. 
