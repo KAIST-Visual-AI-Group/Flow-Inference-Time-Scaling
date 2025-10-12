@@ -117,7 +117,12 @@ CUDA_VISIBLE_DEVICES={$DEVICE} python main.py --config config/quantity_aware/rbf
 ```
 
 ### Aesthetic Image Generation
-Coming Soon.
+Download the checkpoint (`sac+logos+ava1-l14-linearMSE.pth`) of pretrained aesthetic score model from this [link](https://github.com/christophschuhmann/improved-aesthetic-predictor). 
+Place the checkpoint at `ckpt` directory and run the following command: 
+```
+CUDA_VISIBLE_DEVICES={$DEVICE} python main.py --config config/aesthetic_image/rbf_dps.yaml text_prompt={$TEXT_PROMPT}
+```
+
 
 
 ## Citation
