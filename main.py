@@ -17,9 +17,9 @@ from rbf.rewind_trainer import RewindTrainer
 from rbf.rbf import RBF
 
 # Differentiable reward
-# from rbf.dps_trainer import DPSTrainer
-# from rbf.rbf_dps import RBFDPS
-# from rbf.svdd_dps import SVDDDPS
+from rbf.dps_trainer import DPSTrainer
+from rbf.rbf_dps import RBFDPS
+from rbf.svdd_dps import SVDDDPS
 
 from rbf.utils.extra_utils import ignore_kwargs
 from rbf.utils.print_utils import print_with_box, print_info, print_note
@@ -122,14 +122,14 @@ def main():
     elif main_cfg.filtering_method == "rbf":
         trainer = RBF(cfg)
 
-    # elif main_cfg.filtering_method == "dps":
-    #     trainer = DPSTrainer(cfg)
+    elif main_cfg.filtering_method == "dps":
+        trainer = DPSTrainer(cfg)
 
-    # elif main_cfg.filtering_method == "rbf_dps":
-    #     trainer = RBFDPS(cfg)
+    elif main_cfg.filtering_method == "rbf_dps":
+        trainer = RBFDPS(cfg)
 
-    # elif main_cfg.filtering_method == "svdd_dps":
-    #     trainer = SVDDDPS(cfg)
+    elif main_cfg.filtering_method == "svdd_dps":
+        trainer = SVDDDPS(cfg)
         
     else:
         raise ValueError(f"Unknown trainer type: {args.trainer}")
